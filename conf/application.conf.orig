@@ -10,7 +10,7 @@
 # The secret key is used to secure cryptographics functions.
 # If you deploy your application to several instances be sure to use the same key!
 play.crypto.secret="^<csmm5Fx4d=r2HEX8pelM3iBkFVv?k[mc;IZE<_Qoq8EkX_/7@Zt6dP05Pzea3U"
-#play.crypto.secret=${?APPLICATION_SECRET}
+play.crypto.secret=${?APPLICATION_SECRET}
 
 # The application languages
 # ~~~~~
@@ -21,7 +21,7 @@ play.http.context = "/"
 play.application.loader=loader.KafkaManagerLoader
 
 kafka-manager.zkhosts="master.mesos:2181"
-#kafka-manager.zkhosts=${?ZK_HOSTS}
+kafka-manager.zkhosts=${?ZK_HOSTS}
 pinned-dispatcher.type="PinnedDispatcher"
 pinned-dispatcher.executor="thread-pool-executor"
 application.features=["KMClusterManagerFeature","KMTopicManagerFeature","KMPreferredReplicaElectionFeature","KMReassignPartitionsFeature"]
@@ -33,8 +33,13 @@ akka {
 
 akka.logger-startup-timeout = 60s
 
+<<<<<<< HEAD
 basicAuthentication.enabled=true
-#basicAuthentication.enabled=${?KAFKA_MANAGER_AUTH_ENABLED}
+basicAuthentication.username="admin"
+basicAuthentication.password="dcos19"
+=======
+basicAuthentication.enabled=false
+basicAuthentication.enabled=${?KAFKA_MANAGER_AUTH_ENABLED}
 
 basicAuthentication.ldap.enabled=false
 basicAuthentication.ldap.enabled=${?KAFKA_MANAGER_LDAP_ENABLED}
@@ -53,12 +58,14 @@ basicAuthentication.ldap.search-filter=${?KAFKA_MANAGER_LDAP_SEARCH_FILTER}
 basicAuthentication.ldap.connection-pool-size=10
 basicAuthentication.ldap.connection-pool-size=${?KAFKA_MANAGER_LDAP_CONNECTION_POOL_SIZE}
 basicAuthentication.ldap.ssl=false
+basicAuthentication.ldap.ssl=${?KAFKA_MANAGER_LDAP_SSL}
 
 basicAuthentication.username="admin"
-#basicAuthentication.username=${?KAFKA_MANAGER_USERNAME}
-basicAuthentication.password="dcos19"
-#basicAuthentication.password=${?KAFKA_MANAGER_PASSWORD}
+basicAuthentication.username=${?KAFKA_MANAGER_USERNAME}
+basicAuthentication.password="password"
+basicAuthentication.password=${?KAFKA_MANAGER_PASSWORD}
 
+>>>>>>> 2ca848bfdf542bf1da8fc860db9bbcc99548f89d
 basicAuthentication.realm="Kafka-Manager"
 basicAuthentication.excluded=["/api/health"] # ping the health of your instance without authentification
 
