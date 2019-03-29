@@ -33,6 +33,11 @@ akka {
 
 akka.logger-startup-timeout = 60s
 
+<<<<<<< HEAD
+basicAuthentication.enabled=true
+basicAuthentication.username="admin"
+basicAuthentication.password="dcos19"
+=======
 basicAuthentication.enabled=false
 basicAuthentication.enabled=${?KAFKA_MANAGER_AUTH_ENABLED}
 
@@ -53,13 +58,14 @@ basicAuthentication.ldap.search-filter=${?KAFKA_MANAGER_LDAP_SEARCH_FILTER}
 basicAuthentication.ldap.connection-pool-size=10
 basicAuthentication.ldap.connection-pool-size=${?KAFKA_MANAGER_LDAP_CONNECTION_POOL_SIZE}
 basicAuthentication.ldap.ssl=false
-basicAuthentication.enabled=true
+basicAuthentication.ldap.ssl=${?KAFKA_MANAGER_LDAP_SSL}
 
 basicAuthentication.username="admin"
 basicAuthentication.username=${?KAFKA_MANAGER_USERNAME}
-basicAuthentication.password="dcos19"
+basicAuthentication.password="password"
 basicAuthentication.password=${?KAFKA_MANAGER_PASSWORD}
 
+>>>>>>> 2ca848bfdf542bf1da8fc860db9bbcc99548f89d
 basicAuthentication.realm="Kafka-Manager"
 basicAuthentication.excluded=["/api/health"] # ping the health of your instance without authentification
 
